@@ -2,18 +2,23 @@ document.getElementById('delivery-calculator').addEventListener('submit', functi
     event.preventDefault();
 
     const weight = parseFloat(document.getElementById('weight').value);
-    const distance = parseFloat(document.getElementById('distance').value);
+    const method = document.getElementById('method').value;
 
-    if (!isNaN(weight) && !isNaN(distance)) {
-        const cost = calculateDeliveryCost(weight, distance);
-        document.getElementById('result').textContent = `Стоимость доставки: ${cost} руб.`;
+    if (!isNaN(weight)) {
+        const cost = calculateDeliveryCost(weight, method);
+        document.getElementById('result').textContent = `Стоимость доставки: ${cost} грн.`;
     } else {
-        document.getElementById('result').textContent = 'Пожалуйста, введите корректные данные.';
+        document.getElementById('result').textContent = 'Пожалуйста, введите корректный вес.';
     }
 });
 
-function calculateDeliveryCost(weight, distance) {
-    const costPerKg = 5; // Стоимость за кг
-    const costPerKm = 2; // Стоимость за км
-    return (weight * costPerKg) + (distance * costPerKm);
+function calculateDeliveryCost(weight, method) {
+    const aviaCostPerKg = 800;  // Стоимость за кг для авиа
+    const seaCostPerKg = 330;   // Стоимость за кг для морем
+
+    if (method === 'avia') {
+        return weight * aviaCostPerKg;
+    } else if (method === 'sea') {
+        return weight * seaCostPerKg;
+    }
 }
