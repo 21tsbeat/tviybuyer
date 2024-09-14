@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости доставки</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="header-image.jpg" alt="Шапка сайта" class="header-image">
+        <h1>Калькуляция стоимости доставки</h1>
+    </header>
+
+    <section class="calculator-section">
+        <h2>Рассчитайте стоимость доставки</h2>
+        <form id="delivery-calculator">
+            <label for="weight">Вес (кг):</label>
+            <input type="number" id="weight" placeholder="Введите вес" required>
+
+            <label for="distance">Расстояние (км):</label>
+            <input type="number" id="distance" placeholder="Введите расстояние" required>
+
+            <button type="submit">Рассчитать стоимость</button>
+        </form>
+
+        <p id="result"></p>
+    </section>
+
+    <section class="social-section">
+        <a href="https://t.me/yourtelegram" class="social-button">Telegram</a>
+        <a href="https://www.instagram.com/yourinstagram" class="social-button">Instagram</a>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
